@@ -12,7 +12,8 @@
     <main class="text-center sm:text-left mt-4">
         <slot />
     </main>
+
+    <footer class="mt-1">
+        <PageFooter />
+    </footer>
 </div>
-<footer class="bg-neutral-800 text-white mt-1">
-    <PageFooter />
-</footer>
