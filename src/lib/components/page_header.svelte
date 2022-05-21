@@ -3,7 +3,7 @@
 </script>
 
 <div class="my-2">
-    <img src="{avatar}" alt="avatar" class="inline rounded-full border-8 border-gray-300 w-56">
+    <img src="{avatar}" alt="avatar" class="inline rounded-full w-56">
 </div>
 <p class="font-semibold">Welcome to my personal website!</p>
 <nav>
