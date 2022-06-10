@@ -5,15 +5,11 @@
 </script>
 
 <div class="container mx-auto px-1 pt-1">
-    <header class="text-center mb-2">
-        <PageHeader />
-    </header>
+    <PageHeader />
 
     <main class="text-center sm:text-left mt-4">
         <slot />
     </main>
 
-    <footer class="mt-1">
-        <PageFooter />
-    </footer>
+    <PageFooter />
 </div>
