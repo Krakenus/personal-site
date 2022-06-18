@@ -5,5 +5,5 @@
 </script>
 
 <div>
-    <a {href} class:text-gray-600={$page.url.pathname === href} class="no-underline"><slot /></a>
+    <a {href} class:text-gray-600={$page.url.pathname === href} class="no-underline hover:text-gray-600"><slot /></a>
 </div>
