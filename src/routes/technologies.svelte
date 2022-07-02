@@ -9,6 +9,8 @@
 
 <h1>Technologies</h1>
 
+<p>Here you can find most of the technologies I use. The list is not exhaustive but it covers my usual stack.</p>
+
 <h2 class="my-6">Backend</h2>
 <TechSection>
     <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" title="Python" />
@@ -31,11 +33,14 @@
 <h2 class="my-6">DevOps, Tools and Others</h2>
 <TechSection>
     <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" title="Linux" />
-    <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original-wordmark.svg" title="Pycharm" />
     <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original-wordmark.svg" title="Ansible" />
+    <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" title="Docker" />
+    <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original-wordmark.svg" title="Pycharm" />
     <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" title="Git" />
     <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" title="GitHub" />
 </TechSection>
 
 
-<small>All icons above are from awesome <a class="underline" href="https://devicon.dev/">Devicon</a> project. Thanks for them!</small>
+<div class="px-1 pt-4 text-right">
+    <small>All icons above are from awesome <a class="underline" href="https://devicon.dev/">Devicon</a> project. Thanks for them!</small>
+</div>
