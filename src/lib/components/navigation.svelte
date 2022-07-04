@@ -3,8 +3,7 @@
 </script>
 
 <nav>
-    <p>Here you can find:</p>
-    <div class="flex flex-col leading-loose max-w-3xl mx-auto my-2 sm:flex-row sm:justify-around">
+    <div class="grid grid-cols-1 sm:grid-cols-3 leading-loose mx-auto my-2">
         <Navlink href="/">About me</Navlink>
         <Navlink href="/technologies">Technologies I like</Navlink>
         <Navlink href="/contact">How to reach me</Navlink>
