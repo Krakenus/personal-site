@@ -47,8 +47,3 @@
     <SvgIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" title="VS Code" />
     <SvgIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original-wordmark.svg" title="Arduino" />
 </IconRow>
-
-
-<div class="px-1 pt-4 text-right">
-    <small>All icons above are from awesome <a class="underline" href="https://devicon.dev/">Devicon</a> project. Thanks for them!</small>
-</div>
