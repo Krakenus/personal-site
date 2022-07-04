@@ -4,10 +4,10 @@
 </script>
 
 <svelte:head>
-    <title>Milan Vlasák | Technologies</title>
+    <title>Milan Vlasák | Technologies I like</title>
 </svelte:head>
 
-<h1>Technologies</h1>
+<h1>Technologies I like</h1>
 
 <p>Here you can find most of the technologies I use. The list is not exhaustive but it covers my usual stack.</p>
 

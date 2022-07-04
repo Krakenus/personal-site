@@ -1,6 +1,6 @@
 <svelte:head>
-    <title>Contact</title>
+    <title>How to reach me</title>
 </svelte:head>
 
 
-<h1>Contact</h1>
+<h1>How to reach me</h1>
