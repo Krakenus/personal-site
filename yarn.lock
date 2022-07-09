@@ -115,6 +115,14 @@
     esbuild "^0.14.42"
     worktop "0.8.0-next.14"
 
+"@sveltejs/adapter-cloudflare@^1.0.0-next.25":
+  version "1.0.0-next.25"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-cloudflare/-/adapter-cloudflare-1.0.0-next.25.tgz#088291bc355f0a5b8114d6e5cbfa75dd3fc714ed"
+  integrity sha512-fhjH4LInepYxJ6ubuNO38sJeor04cUBKMPF5hpwrXLhKHrYTVwq1Oi7xNVbnrrIQzGRyiHOCvMy8E/MNnO3xLw==
+  dependencies:
+    esbuild "^0.14.42"
+    worktop "0.8.0-next.14"
+
 "@sveltejs/adapter-netlify@1.0.0-next.66":
   version "1.0.0-next.66"
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-netlify/-/adapter-netlify-1.0.0-next.66.tgz#55c1bf03af3a8d38afaacaeacec766043d81fb5f"
@@ -123,13 +131,6 @@
     "@iarna/toml" "^2.2.5"
     esbuild "^0.14.42"
     set-cookie-parser "^2.4.8"
-    tiny-glob "^0.2.9"
-
-"@sveltejs/adapter-static@^1.0.0-next.29":
-  version "1.0.0-next.34"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.34.tgz#f17e967e43f73e57feed6d81d8151de1e09d9836"
-  integrity sha512-XjuMhemme5z0L/B2nTZpA6k+RJjF+b6L96ts6gIQ6ixiCzJQSbBqJhrrBYBCaeLAKvdUMoGEmX8m862JhKjRFg==
-  dependencies:
     tiny-glob "^0.2.9"
 
 "@sveltejs/adapter-vercel@1.0.0-next.59":
