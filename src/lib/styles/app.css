@@ -16,13 +16,17 @@
 @tailwind utilities;
 
 body {
-    @apply font-open-sans leading-normal;
+    @apply font-open-sans leading-normal bg-neutral-50;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    @apply font-roboto;
+    @apply font-roboto text-black;
 }
 
 header {
     @apply font-roboto;
+}
+
+.bordered-content {
+    @apply rounded-md ring-1 ring-slate-900/5 shadow-md text-gray-700;
 }

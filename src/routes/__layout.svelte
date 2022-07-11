@@ -8,7 +8,9 @@
     <PageHeader />
 
     <main class="mt-4">
-        <slot />
+        <div class="bordered-content bg-white p-4">
+            <slot />
+        </div>
     </main>
 
     <PageFooter />
