@@ -8,6 +8,8 @@
     <a {href}
        class:text-black={$page.url.pathname === href}
        class:text-gray-600={$page.url.pathname !== href}
-       class="no-underline hover:text-black"
+       class:dark:text-white={$page.url.pathname === href}
+       class:dark:text-gray-200={$page.url.pathname !== href}
+       class="no-underline hover:text-black dark:hover:text-white"
     ><slot /></a>
 </div>
