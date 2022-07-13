@@ -5,8 +5,8 @@
 </script>
 
 <header class="text-center mb-2">
-    <Avatar />
     <DarkModeSwitch />
+    <Avatar />
     <p class="font-semibold">Welcome to my personal website!</p>
     <Navigation />
 </header>
