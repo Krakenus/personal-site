@@ -1,6 +1,7 @@
 <script lang="ts">
     import SvgLink from '$lib/components/icons/svgLink.svelte';
     import IconRow from '$lib/components/icons/iconRow.svelte';
+    import ContactForm from '$lib/components/forms/contactForm.svelte';
 </script>
 
 <svelte:head>
@@ -9,6 +10,8 @@
 
 
 <h1>How to reach me</h1>
+
+<ContactForm />
 
 <IconRow>
     <SvgLink href="https://github.com/Krakenus"

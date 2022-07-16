@@ -1,7 +1,7 @@
 <script lang="ts">
     import '$lib/styles/app.css';
-    import PageHeader from '$lib/components/page_header.svelte'
-    import PageFooter from '$lib/components/page_footer.svelte'
+    import PageHeader from '$lib/components/pageHeader.svelte'
+    import PageFooter from '$lib/components/pageFooter.svelte'
 </script>
 
 <div class="container mx-auto px-1 pt-1">
