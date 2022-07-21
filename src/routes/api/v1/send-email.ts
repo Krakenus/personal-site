@@ -30,13 +30,11 @@ export async function POST({ request }) {
       ]
     })
   });
-  fetch(mailRequest).then((response: Response) => {
-    console.log(response);
-  }).catch(reason => {
-    console.log(reason);
-  });
+
+  const response = await fetch(mailRequest);
 
   return {
-    status: 200,
+    status: response.status,
+    body: response.body
   };
 }
