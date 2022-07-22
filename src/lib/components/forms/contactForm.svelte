@@ -11,7 +11,7 @@
     }
 </script>
 
-<div class="mb-4">
+<div class="my-4">
     <form on:submit|preventDefault={handleSubmit}>
         <FormInput name="name" type="text" label="Name" required={true} placeholder="Enter your name" />
         <FormInput name="email" type="email" label="E-mail" required={true} placeholder="Enter your e-mail" />
