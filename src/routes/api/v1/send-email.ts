@@ -31,7 +31,7 @@ export async function POST({ request }) {
     })
   });
 
-  const response = await fetch(mailRequest);
+  /*const response = await fetch(mailRequest);
   if(response.status !== 202) {
     return {
       status: 500,
@@ -40,12 +40,13 @@ export async function POST({ request }) {
         message: 'E-mail sending failed.'
       }
     }
-  }
+  }*/
   return {
     status: 200,
     body: {
       success: true,
-      message: 'E-mail sent.'
+      message: 'E-mail sent.',
+      headers: request.headers
     }
   };
 }
