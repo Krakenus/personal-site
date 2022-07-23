@@ -13,7 +13,5 @@ export async function validateHCaptcha(token: string): Promise<boolean> {
 
     const response = await fetch(hcaptchaRequest);
     const data = await response.json();
-    console.log(response.status);
-    console.log(data);
     return data.success;
 }

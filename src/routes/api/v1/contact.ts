@@ -9,16 +9,24 @@ export async function POST({ request }) {
 
   const captchaSuccess = await validateHCaptcha(data.get('h-captcha-response'));
 
-  if(captchaSuccess && !dev) {
-    const response = await sendEmail(data);
-    if (response.status !== 202) {
-      return {
-        status: 500,
-        body: {
-          success: false,
-          message: 'E-mail sending failed.'
+  if(captchaSuccess) {
+    if (!dev) {
+      const response = await sendEmail(data);
+      if (response.status !== 202) {
+        return {
+          status: 500,
+          body: {
+            success: false,
+            message: 'E-mail sending failed.'
+          }
         }
       }
+    }
+  } else {
+    return {
+      status: 403,
+      success: false,
+      message: 'No bots allowed!'
     }
   }
   return {
