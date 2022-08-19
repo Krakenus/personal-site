@@ -6,6 +6,6 @@
 </script>
 
 <div class="my-4">
-  <label for={name} class="block text-sm font-bold">{label}</label>
+  <label for={name} class="block text-sm font-bold ml-1">{label}</label>
   <textarea rows="8" id={name} {name} {placeholder} {required}></textarea>
 </div>
