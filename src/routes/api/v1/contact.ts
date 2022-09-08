@@ -1,10 +1,11 @@
 import {sendEmail} from "$lib/server/mailChannel";
 import { dev } from '$app/env';
+import type { IContactApiData } from "$lib/types";
 
 
 /** @type {import('./__types/items').RequestHandler} */
 export async function POST({ request }) {
-  const data = await request.formData();
+  const data: IContactApiData = await request.json();
 
   if(!dev) {
     const response = await sendEmail(data);

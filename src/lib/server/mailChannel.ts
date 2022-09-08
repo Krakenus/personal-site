@@ -1,4 +1,7 @@
-export async function sendEmail(data: FormData): Promise<Response> {
+import type {IContactApiData} from "$lib/types";
+
+
+export async function sendEmail(data: IContactApiData): Promise<Response> {
     const mailRequest = new Request('https://api.mailchannels.net/tx/v1/send', {
         method: 'POST',
         headers: {
@@ -18,11 +21,11 @@ export async function sendEmail(data: FormData): Promise<Response> {
             content: [
                 {
                     type: 'text/plain',
-                    value: `New website message.\n\nName: ${data.get('name')}\nE-mail: ${data.get('email')}\n\nMessage:\n${data.get('message')}`
+                    value: `New website message.\n\nName: ${data.name}\nE-mail: ${data.email}\n\nMessage:\n${data.message}`
                 },
                 {
                     type: 'text/html',
-                    value: `New website message.<br><br>Name: ${data.get('name')}<br>E-mail: ${data.get('email')}<br><br>Message:<br>${data.get('message')}`
+                    value: `New website message.<br><br>Name: ${data.name}<br>E-mail: ${data.email}<br><br>Message:<br>${data.message}`
                 }
             ]
         })
