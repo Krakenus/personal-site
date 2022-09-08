@@ -1,4 +1,4 @@
-import {sendEmail} from "$lib/server/mailChannel";
+import {sendEmail} from "$lib/server/mailChannels";
 import { dev } from '$app/env';
 import type { IContactApiData } from "$lib/types";
 
