@@ -1,6 +1,7 @@
 <script lang="ts">
     import SvgLink from '$lib/components/icons/svgLink.svelte';
     import IconRow from '$lib/components/icons/iconRow.svelte';
+    import ContactForm from '$lib/components/forms/contactForm.svelte';
 </script>
 
 <svelte:head>
@@ -9,6 +10,13 @@
 
 
 <h1>How to reach me</h1>
+
+<p>
+    Here you can find links to my GitHub where you can find some of my public code repositories.
+    I'm not very active on social networks buy you can also visit my LinkedIn and Twitter.
+</p>
+
+<p class="mb-4">Or feel free to send me a message using the contact form bellow.</p>
 
 <IconRow>
     <SvgLink href="https://github.com/Krakenus"
@@ -21,3 +29,5 @@
              title="Twitter"
              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" />
 </IconRow>
+
+<ContactForm />
