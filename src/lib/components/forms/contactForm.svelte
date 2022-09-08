@@ -13,7 +13,7 @@
             error = true;
             return
         }
-        fetch('/api/v1/contact/', {
+        fetch('/api/v1/contact', {
             method: 'POST',
             body: JSON.stringify({
                 name: name,
