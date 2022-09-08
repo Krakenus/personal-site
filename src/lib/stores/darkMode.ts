@@ -1,9 +1,9 @@
-import { server } from '$app/env';
+import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
 
 function createDarkModeStore() {
-    const systemThemeDark = server ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const userTheme = server ? undefined : localStorage.theme;
+    const systemThemeDark = browser ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
+    const userTheme = browser ? localStorage.theme : undefined;
     const initialValue = userTheme === 'dark' || (userTheme === undefined && systemThemeDark);
 
     const switchDarkModeClass = (enabled: boolean) => {
@@ -14,7 +14,7 @@ function createDarkModeStore() {
         }
     }
 
-    if(!server) {
+    if(browser) {
         switchDarkModeClass(initialValue);
     }
     const { subscribe, set, update } = writable<boolean>(initialValue);
