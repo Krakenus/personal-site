@@ -1,7 +1,4 @@
 <script lang="ts">
-    import FormInput from '$lib/components/forms/formInput.svelte';
-    import FormTextarea from '$lib/components/forms/formTextarea.svelte';
-
     let error = false;
     let success = false;
 
@@ -40,10 +37,22 @@
 
 <div class="my-4">
     <form on:submit|preventDefault={handleSubmit}>
-        <FormInput name="name" type="text" label="Name" required={true} placeholder="Enter your name" bind:value={name} />
-        <FormInput name="email" type="email" label="E-mail" required={true} placeholder="Enter your e-mail" bind:value={email} />
-        <FormTextarea name="message" label="Message" required={true} placeholder="Enter your message" bind:value={message} />
-        <FormInput name="check" type="number" label="2 + 2 = ?" required={true} placeholder="Answer" bind:value={check} />
+        <label class="block my-4">
+            <span class="block text-sm font-bold ml-1 required">Name</span>
+            <input id=name name="name" placeholder="Enter your name" required bind:value={name} />
+        </label>
+        <label class="block my-4">
+            <span class="block text-sm font-bold ml-1 required">Name</span>
+            <input id=email name="email" placeholder="Enter your e-mail" required bind:value={email} />
+        </label>
+        <div class="my-4">
+          <label for=message class="block text-sm font-bold ml-1 required">Message</label>
+          <textarea rows="8" id=message name="message" placeholder="Enter your message" required bind:value={message}></textarea>
+        </div>
+        <label class="block my-4">
+            <span class="block text-sm font-bold ml-1 required">2 + 2 = ?</span>
+            <input id=check name="check" placeholder="Answer" required bind:value={check} />
+        </label>
         <div>
             <button class="float-right bg-blue-500 dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-900 p-2 px-3 mx-0.5 text-center rounded-md transition-colors duration-300 ease-in-out text-white" type="submit">Send</button>
             <div class="clear-both"></div>
