@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-    <title>How to reach me</title>
+    <title>Milan Vlasák | How to reach me</title>
 </svelte:head>
 
 
