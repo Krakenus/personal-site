@@ -6,6 +6,7 @@
 
 <svelte:head>
     <title>Milan Vlasák | How to reach me</title>
+    <meta name="description" content="Links to my GitHub and social networks.">
 </svelte:head>
 
 
