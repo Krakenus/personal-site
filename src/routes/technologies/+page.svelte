@@ -5,7 +5,8 @@
 
 <svelte:head>
     <title>Milan Vlasák | Technologies I like</title>
-    <meta name="description" content="List of most of the technologies I use. The list is not exhaustive but it covers my usual stack.">
+    <meta property="og:title" content="Technologies I like">
+    <meta name="description" property="og:description" content="List of most of the technologies I use. The list is not exhaustive but it covers my usual stack.">
 </svelte:head>
 
 <h1>Technologies I like</h1>
