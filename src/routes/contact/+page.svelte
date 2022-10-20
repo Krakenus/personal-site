@@ -5,7 +5,11 @@
 </script>
 
 <svelte:head>
-    <title>How to reach me</title>
+    <title>Milan Vlasák | How to reach me</title>
+    <meta property="og:title" content="How to reach me">
+    <meta name="description" property="og:description" content="Links to my GitHub and social networks.">
+
+    <link rel="canonical" href="https://milanvlasak.cz/contact"/>
 </svelte:head>
 
 

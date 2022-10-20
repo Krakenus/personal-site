@@ -1,5 +1,9 @@
 <svelte:head>
     <title>Milan Vlasák | About me</title>
+    <meta property="og:title" content="About me">
+    <meta name="description" property="og:description" content="My name is Milan and I'm a software developer from Czech Republic.">
+
+    <link rel="canonical" href="https://milanvlasak.cz"/>
 </svelte:head>
 
 <h1>About me</h1>
