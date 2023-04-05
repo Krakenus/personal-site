@@ -1,5 +1,5 @@
 <script lang="ts">
-    import TechCard from '$lib/components/technologies/techCard.svelte';
+    import TechSlider from '$lib/components/technologies/techSlider.svelte';
 </script>
 
 <svelte:head>
@@ -14,18 +14,18 @@
 
 <p>Here you can find most of the technologies I use. The list is not exhaustive but it covers my usual stack.</p>
 
-<TechCard heading="Backend" href="/technologies/backend">
+<TechSlider heading="Backend" href="/technologies/backend" offset="1">
     Make home for data and logic.
-</TechCard>
+</TechSlider>
 
-<TechCard heading="Frontend" href="/technologies/frontend">
+<TechSlider heading="Frontend" href="/technologies/frontend" offset="2">
     Let's give it a face.
-</TechCard>
+</TechSlider>
 
-<TechCard heading="Sys & DevOps" href="/technologies/devops">
+<TechSlider heading="Sys & DevOps" href="/technologies/devops" offset="3">
     It has to run somewhere.
-</TechCard>
+</TechSlider>
 
-<TechCard heading="Tools & Others" href="/technologies/devops">
+<TechSlider heading="Tools & Others" href="/technologies/devops" offset="4">
     Using the right gear.
-</TechCard>
+</TechSlider>
