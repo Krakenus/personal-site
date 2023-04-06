@@ -13,9 +13,9 @@
     }
 </script>
 
-<div class="flex flex-col md:flex-row w-full">
+<div class="flex flex-col md:flex-row w-full my-2">
     <div class={prefixClass}></div>
-    <div class="border dark:border-0 rounded-md p-4 my-2 w-full md:w-1/4">
+    <div class="rounded-md bg-gray-50 dark:bg-gray-600 p-4 my-2 w-full md:w-1/4">
         <a {href}>
             <div class="">
                 <h2>{heading}</h2>
