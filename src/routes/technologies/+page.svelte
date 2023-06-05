@@ -26,6 +26,6 @@
     It has to run somewhere.
 </TechSlider>
 
-<TechSlider heading="Tools & Others" href="/technologies/devops" offset="4">
+<TechSlider heading="Tools & Others" href="/technologies/tools" offset="4">
     Using the right gear.
 </TechSlider>
