@@ -14,18 +14,18 @@
 
 <p>Here you can find most of the technologies I use. The list is not exhaustive but it covers my usual stack.</p>
 
-<TechSlider heading="Backend" href="/technologies/backend" offset="1">
+<TechSlider heading="Backend" href="/technologies/backend" order="1">
     Make home for data and logic.
 </TechSlider>
 
-<TechSlider heading="Frontend" href="/technologies/frontend" offset="2">
+<TechSlider heading="Frontend" href="/technologies/frontend" order="2">
     Let's give it a face.
 </TechSlider>
 
-<TechSlider heading="Sys & DevOps" href="/technologies/devops" offset="3">
+<TechSlider heading="Sys & DevOps" href="/technologies/devops" order="3">
     It has to run somewhere.
 </TechSlider>
 
-<TechSlider heading="Tools & Others" href="/technologies/tools" offset="4">
+<TechSlider heading="Tools & Others" href="/technologies/tools" order="4">
     Using the right gear.
 </TechSlider>
