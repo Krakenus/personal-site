@@ -5,6 +5,16 @@
 
 <h1>Backend</h1>
 
+<p class="mb-2">
+    Backend development is my main focus. Originally I was PHP developer, but after discovering Python I never looked back.
+</p>
+<p class="mb-2">
+    I have experience with REST and GraphQL APIs, and I'm comfortable with both SQL and NoSQL databases.
+</p>
+<p class="mb-2">
+    Most of my work was powered by Django framework and for several years I'm in love with FastAPI.
+</p>
+
 <IconRow>
     <SvgIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" title="Python" />
     <SvgIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg" title="Django" />

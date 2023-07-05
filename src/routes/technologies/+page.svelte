@@ -12,7 +12,7 @@
 
 <h1>My tech stack</h1>
 
-<p>Here you can find most of the technologies I use. The list is not exhaustive but it covers my usual stack.</p>
+<p class="mb-2">Here you can find most of the technologies I use. The list is not exhaustive but it covers my usual stack.</p>
 
 <TechSlider heading="Backend" href="/technologies/backend" order="1">
     Make home for data and logic.
