@@ -3,6 +3,14 @@
     import SvgIcon from '$lib/components/icons/svgIcon.svelte';
 </script>
 
+<svelte:head>
+    <title>Milan Vlasák | Tools & Others</title>
+    <meta property="og:title" content="Tools & Others">
+    <meta name="description" property="og:description" content="">
+
+    <link rel="canonical" href="https://milanvlasak.cz/technologies/tools" />
+</svelte:head>
+
 <h1>Tools & Others</h1>
 
 <IconRow>

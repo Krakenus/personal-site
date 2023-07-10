@@ -3,6 +3,14 @@
     import SvgIcon from '$lib/components/icons/svgIcon.svelte';
 </script>
 
+<svelte:head>
+    <title>Milan Vlasák | Backend</title>
+    <meta property="og:title" content="Backend">
+    <meta name="description" property="og:description" content="Backend development is my main focus. Most of my projects were powered by Django framework and for several years I'm in love with FastAPI.">
+
+    <link rel="canonical" href="https://milanvlasak.cz/technologies/backend" />
+</svelte:head>
+
 <h1>Backend</h1>
 
 <p class="mb-2">
@@ -12,7 +20,7 @@
     I have experience with REST and GraphQL APIs, and I'm comfortable with both SQL and NoSQL databases.
 </p>
 <p class="mb-2">
-    Most of my work was powered by Django framework and for several years I'm in love with FastAPI.
+    Most of my projects were powered by Django framework and for several years I'm in love with FastAPI.
 </p>
 
 <IconRow>
