@@ -8,7 +8,7 @@
     <PageHeader />
 
     <main class="mt-4">
-        <div class="bordered-content bg-white p-4">
+        <div class="bordered-content bg-neutral-50 p-4">
             <slot />
         </div>
     </main>
