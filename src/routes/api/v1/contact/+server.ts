@@ -1,4 +1,4 @@
-import {sendEmail} from "$lib/server/mailChannels";
+import {sendEmail} from "$lib/server/mailgun";
 import { dev } from '$app/environment';
 import type { IContactApiData } from "$lib/types";
 
@@ -7,18 +7,18 @@ import type { IContactApiData } from "$lib/types";
 export async function POST({ request }) {
   const data: IContactApiData = await request.json();
 
-  if(!dev) {
-    const response = await sendEmail(data);
-    if (response.status !== 202) {
-      return new Response(JSON.stringify({
-          success: false,
-          message: 'E-mail sending failed.'
-        }), {
-          status: 500
-        }
-      );
-    }
+  const response = await sendEmail(data);
+
+  if (response.status !== 200) {
+    return new Response(JSON.stringify({
+        success: false,
+        message: 'E-mail sending failed.'
+      }), {
+        status: 500
+      }
+    );
   }
+
   return new Response(JSON.stringify({
       success: true,
       message: 'E-mail sent.'
