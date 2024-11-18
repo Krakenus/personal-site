@@ -1,5 +1,4 @@
 import {sendEmail} from "$lib/server/mailgun";
-import { dev } from '$app/environment';
 import type { IContactApiData } from "$lib/types";
 
 
