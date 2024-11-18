@@ -1,7 +1,11 @@
 <script lang="ts">
-    export let href: string;
-    export let src: string;
-    export let title: string;
+    interface Props {
+        href: string;
+        src: string;
+        title: string;
+    }
+
+    let { href, src, title }: Props = $props();
 </script>
 
 <div>

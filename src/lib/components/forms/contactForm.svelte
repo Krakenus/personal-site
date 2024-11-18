@@ -1,18 +1,21 @@
 <script lang="ts">
-    let error = false;
-    let success = false;
+    let error = $state(false);
+    let success = $state(false);
 
-    let name: string
-    let email: string
-    let message: string
-    let check: number
+    let name: string|undefined = $state()
+    let email: string|undefined = $state()
+    let message: string|undefined = $state()
+    let check: number|undefined = $state()
 
-    function handleSubmit() {
+    function handleSubmit(event: SubmitEvent) {
+        event.preventDefault();
+
         if(check !== 4) {
             success = false;
             error = true;
             return
         }
+        
         fetch('/api/v1/contact', {
             method: 'POST',
             body: JSON.stringify({
@@ -36,7 +39,7 @@
 </script>
 
 <div class="my-4">
-    <form on:submit|preventDefault={handleSubmit}>
+    <form onsubmit={handleSubmit}>
         <label class="block my-4">
             <span class="block text-sm font-bold ml-1 required">Name</span>
             <input class="dark:bg-gray-600" id=name name="name" placeholder="Enter your name" required bind:value={name} />
