@@ -1,9 +1,19 @@
 <script lang="ts">
-    export let heading: string;
-    export let href: string
-    export let order: number;
+    interface Props {
+        heading: string;
+        href: string;
+        order: number;
+        children?: import('svelte').Snippet;
+    }
 
-    let prefixClass = 'lg:w-full';
+    let {
+        heading,
+        href,
+        order,
+        children
+    }: Props = $props();
+
+    let prefixClass = $state('lg:w-full');
     if(order == 1) {
         prefixClass = 'lg:w-1/4';
     } else if(order == 2) {
@@ -19,7 +29,7 @@
             <div>
                 <h2>{heading}</h2>
                 <div class="xl:text-right">
-                    <slot />
+                    {@render children?.()}
                 </div>
             </div>
         </a>

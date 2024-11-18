@@ -1,7 +1,12 @@
 <script lang="ts">
     import {page} from '$app/stores';
 
-    export let href: string;
+    interface Props {
+        href: string;
+        children?: import('svelte').Snippet;
+    }
+
+    let { href, children }: Props = $props();
 </script>
 
 <div class="bordered-content px-4 my-2">
@@ -11,5 +16,5 @@
        class:dark:text-white={$page.url.pathname === href}
        class:dark:text-gray-200={$page.url.pathname !== href}
        class="no-underline hover:text-black dark:hover:text-white"
-    ><slot /></a>
+    >{@render children?.()}</a>
 </div>

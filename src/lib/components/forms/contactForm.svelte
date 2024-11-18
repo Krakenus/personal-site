@@ -1,11 +1,13 @@
 <script lang="ts">
-    let error = false;
-    let success = false;
+    import { preventDefault } from 'svelte/legacy';
 
-    let name: string
-    let email: string
-    let message: string
-    let check: number
+    let error = $state(false);
+    let success = $state(false);
+
+    let name: string = $state()
+    let email: string = $state()
+    let message: string = $state()
+    let check: number = $state()
 
     function handleSubmit() {
         if(check !== 4) {
@@ -36,7 +38,7 @@
 </script>
 
 <div class="my-4">
-    <form on:submit|preventDefault={handleSubmit}>
+    <form onsubmit={preventDefault(handleSubmit)}>
         <label class="block my-4">
             <span class="block text-sm font-bold ml-1 required">Name</span>
             <input class="dark:bg-gray-600" id=name name="name" placeholder="Enter your name" required bind:value={name} />
