@@ -1,9 +1,9 @@
 import {sendEmail} from "$lib/server/mailgun";
 import type { IContactApiData } from "$lib/types";
+import type { RequestHandler } from './$types';
 
 
-/** @type {import('@sveltejs/kit').Config} */
-export async function POST({ request }) {
+export const POST: RequestHandler = async ({ request }) => {
   const data: IContactApiData = await request.json();
 
   const response = await sendEmail(data);
