@@ -3,3 +3,7 @@ export interface IContactApiData {
     email: string
     message: string
 }
+
+export interface IContactApiRequest extends IContactApiData {
+    turnstileToken?: string
+}

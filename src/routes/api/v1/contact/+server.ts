@@ -1,10 +1,23 @@
 import {sendEmail} from "$lib/server/mailgun";
-import type { IContactApiData } from "$lib/types";
+import {verifyTurnstileToken} from "$lib/server/turnstile";
+import type { IContactApiRequest } from "$lib/types";
 import type { RequestHandler } from './$types';
 
 
-export const POST: RequestHandler = async ({ request }) => {
-  const data: IContactApiData = await request.json();
+export const POST: RequestHandler = async ({ request, getClientAddress }) => {
+  const { turnstileToken, ...data }: IContactApiRequest = await request.json();
+
+  const verified = await verifyTurnstileToken(turnstileToken, getClientAddress());
+
+  if (!verified) {
+    return new Response(JSON.stringify({
+        success: false,
+        message: 'Verification failed.'
+      }), {
+        status: 403
+      }
+    );
+  }
 
   const response = await sendEmail(data);
 

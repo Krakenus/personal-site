@@ -35,15 +35,28 @@ Page content is hardcoded prose inside the `.svelte` files — there is no CMS, 
 `+page.ts` anywhere. Adding content means editing markup.
 
 **One dynamic endpoint.** `POST /api/v1/contact` (`src/routes/api/v1/contact/+server.ts`) is the only
-server code; it delegates to `sendEmail()` in `src/lib/server/mailgun.ts` and runs as a Cloudflare
-function. It performs no validation — the contact form's "2 + 2 = ?" spam check
-(`src/lib/components/forms/contactForm.svelte`) is client-side only.
+server code; it runs as a Cloudflare function. It verifies the request's Cloudflare Turnstile token
+via `verifyTurnstileToken()` (`src/lib/server/turnstile.ts`) and answers 403 if that fails, then
+delegates to `sendEmail()` in `src/lib/server/mailgun.ts`. That token check is the spam defence and
+is server-side — the form's own `!turnstileToken` guard is only there to produce a nicer message.
+It performs no other validation of the payload.
 
-**Secrets are build-time, not runtime.** `mailgun.ts` reads `import.meta.env.VITE_*` (see
-`.env.example`), which Vite *inlines at build time* — Cloudflare runtime secret bindings would not
-reach this code, and the build environment must have the vars. The `VITE_` prefix means these values
-would land in the client bundle if this module were ever imported from a component; the
-`$lib/server/` boundary is the only thing preventing that. Keep Mailgun access behind it.
+**Turnstile is rendered explicitly, not by the `.cf-turnstile` auto-render.**
+`src/lib/components/forms/turnstileWidget.svelte` injects
+`challenges.cloudflare.com/turnstile/v0/api.js?render=explicit` on demand (once per page, via a
+module-level promise) and calls `turnstile.render()` from an `$effect`, because the page is
+prerendered and the widget must appear after hydration. A widget's theme is fixed at render time,
+so the effect depends on the `darkMode` store and tears the widget down and re-renders it when the
+theme flips. Tokens are single-use, so `contactForm.svelte` calls the component's exported
+`reset()` after every submit attempt. The `window.turnstile` types live in `src/app.d.ts`.
+
+**Secrets are build-time, not runtime.** `mailgun.ts` and `turnstile.ts` read
+`import.meta.env.VITE_*` (see `.env.example`), which Vite *inlines at build time* — Cloudflare
+runtime secret bindings would not reach this code, and the build environment must have the vars. The
+`VITE_` prefix means these values would land in the client bundle if these modules were ever
+imported from a component; the `$lib/server/` boundary is the only thing preventing that. Keep
+Mailgun and `VITE_CF_TURNSTILE_SECRET_KEY` behind it. `VITE_CF_TURNSTILE_SITE_KEY` is the exception
+— it is public by design and is read straight from `contactForm.svelte`.
 
 **Dark mode is duplicated by design.** `app.css` redefines the `dark:` variant as class-based
 (`@custom-variant dark`), since Tailwind 4 defaults it to a media query. The store
