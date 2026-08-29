@@ -1,39 +1,46 @@
 <script lang="ts">
-    let error = $state(false);
+    import TurnstileWidget from '$lib/components/forms/turnstileWidget.svelte';
+
+    let error: string|undefined = $state();
     let success = $state(false);
 
     let name: string|undefined = $state()
     let email: string|undefined = $state()
     let message: string|undefined = $state()
-    let check: number|undefined = $state()
+    let turnstileToken: string|undefined = $state()
+    let turnstile: ReturnType<typeof TurnstileWidget>|undefined = $state()
 
     function handleSubmit(event: SubmitEvent) {
         event.preventDefault();
 
-        if(check !== 4) {
+        if(!turnstileToken) {
             success = false;
-            error = true;
+            error = 'Please complete the verification challenge first.';
             return
         }
-        
+
         fetch('/api/v1/contact', {
             method: 'POST',
             body: JSON.stringify({
                 name: name,
                 email: email,
-                message: message
+                message: message,
+                turnstileToken: turnstileToken
             }),
         }).then((response) => {
             if(response.ok) {
                 success = true;
-                error = false;
+                error = undefined;
             } else {
                 success = false;
-                error = true;
+                error = 'Message submission failed.';
             }
         }).catch(() => {
             success = false;
-            error = true;
+            error = 'Message submission failed.';
+        }).finally(() => {
+            // Turnstile tokens are single-use — get a fresh one for the next attempt.
+            turnstile?.reset();
         });
     }
 </script>
@@ -52,15 +59,14 @@
           <label for=message class="block text-sm font-bold ml-1 required">Message</label>
           <textarea class="dark:bg-gray-600" rows="8" id=message name="message" placeholder="Enter your message" required bind:value={message}></textarea>
         </div>
-        <label class="block my-4">
-            <span class="block text-sm font-bold ml-1 required">2 + 2 = ?</span>
-            <input class="dark:bg-gray-600" id=check name="check" type="number" placeholder="Answer" required bind:value={check} />
-        </label>
+        <TurnstileWidget bind:this={turnstile}
+                         bind:token={turnstileToken}
+                         siteKey={import.meta.env.VITE_CF_TURNSTILE_SITE_KEY} />
         <div>
             <button class="float-right bg-blue-500 dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-900 p-2 px-3 mx-0.5 text-center rounded-md transition-colors duration-300 ease-in-out text-white" type="submit">Send</button>
             <div class="clear-both"></div>
         </div>
     </form>
-    {#if error}<p>Message submission failed.</p>{/if}
+    {#if error}<p>{error}</p>{/if}
     {#if success}<p>Message sent. Thank you.</p>{/if}
 </div>

@@ -35,9 +35,17 @@ There is no test suite; `npm run check` and `npm run lint` are the verification 
 
 ## Environment
 
-The contact form posts to `POST /api/v1/contact`, which sends mail through Mailgun. The credentials
-are read via `import.meta.env.VITE_*` and are **inlined at build time**, so they must be present in
-the build environment (not only at runtime). See `.env.example` for the full list of keys.
+The contact form posts to `POST /api/v1/contact`, which validates a
+[Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) token and then sends mail
+through Mailgun. The credentials are read via `import.meta.env.VITE_*` and are **inlined at build
+time**, so they must be present in the build environment (not only at runtime). See `.env.example`
+for the full list of keys.
+
+The Turnstile keys come from a widget created in the Cloudflare dashboard
+(Turnstile → Add widget): `VITE_CF_TURNSTILE_SITE_KEY` is public and ships in the client bundle,
+`VITE_CF_TURNSTILE_SECRET_KEY` must not — it is only read from `src/lib/server/turnstile.ts`. For
+local development Cloudflare publishes dummy keys that always pass:
+`1x00000000000000000000AA` (site) and `1x0000000000000000000000000000000AA` (secret).
 
 ## Link previews
 
