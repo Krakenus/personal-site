@@ -1,15 +1,14 @@
 <script lang="ts">
+    import SeoHead from '$lib/components/seoHead.svelte';
     import IconRow from '$lib/components/icons/iconRow.svelte';
     import SvgIcon from '$lib/components/icons/svgIcon.svelte';
 </script>
 
-<svelte:head>
-    <title>Milan Vlasák | Frontend</title>
-    <meta property="og:title" content="Frontend">
-    <meta name="description" property="og:description" content="    At the moment my favorite frontend framework is Svelte in combination with Tailwindcss which I use for this website as well.">
-
-    <link rel="canonical" href="https://milanvlasak.cz/technologies/frontend" />
-</svelte:head>
+<SeoHead
+    title="Frontend"
+    description="At the moment my favorite frontend framework is Svelte in combination with Tailwindcss which I use for this website as well."
+    path="/technologies/frontend"
+/>
 
 <h1>Frontend</h1>
 

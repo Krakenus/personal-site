@@ -1,15 +1,14 @@
 <script lang="ts">
+    import SeoHead from '$lib/components/seoHead.svelte';
     import IconRow from '$lib/components/icons/iconRow.svelte';
     import SvgIcon from '$lib/components/icons/svgIcon.svelte';
 </script>
 
-<svelte:head>
-    <title>Milan Vlasák | Tools & Others</title>
-    <meta property="og:title" content="Tools & Others">
-    <meta name="description" property="og:description" content="Here are some tools and other things I use.">
-
-    <link rel="canonical" href="https://milanvlasak.cz/technologies/tools" />
-</svelte:head>
+<SeoHead
+    title="Tools & Others"
+    description="Here are some tools and other things I use."
+    path="/technologies/tools"
+/>
 
 <h1>Tools & Others</h1>
 

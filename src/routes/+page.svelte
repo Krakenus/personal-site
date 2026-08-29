@@ -1,10 +1,12 @@
-<svelte:head>
-    <title>Milan Vlasák | About me</title>
-    <meta property="og:title" content="About me">
-    <meta name="description" property="og:description" content="My name is Milan and I'm a software developer from Czech Republic.">
+<script lang="ts">
+    import SeoHead from '$lib/components/seoHead.svelte';
+</script>
 
-    <link rel="canonical" href="https://milanvlasak.cz"/>
-</svelte:head>
+<SeoHead
+    title="About me"
+    description="My name is Milan and I'm a software developer from Czech Republic."
+    path="/"
+/>
 
 <h1>About me</h1>
 

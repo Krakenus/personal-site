@@ -1,15 +1,14 @@
 <script lang="ts">
+    import SeoHead from '$lib/components/seoHead.svelte';
     import IconRow from '$lib/components/icons/iconRow.svelte';
     import SvgIcon from '$lib/components/icons/svgIcon.svelte';
 </script>
 
-<svelte:head>
-    <title>Milan Vlasák | Backend</title>
-    <meta property="og:title" content="Backend">
-    <meta name="description" property="og:description" content="Backend development is my main focus. Most of my projects were powered by Django framework and for several years I'm in love with FastAPI.">
-
-    <link rel="canonical" href="https://milanvlasak.cz/technologies/backend" />
-</svelte:head>
+<SeoHead
+    title="Backend"
+    description="Backend development is my main focus. Most of my projects were powered by Django framework and for several years I'm in love with FastAPI."
+    path="/technologies/backend"
+/>
 
 <h1>Backend</h1>
 
