@@ -1,14 +1,13 @@
 <script lang="ts">
+    import SeoHead from '$lib/components/seoHead.svelte';
     import TechSlider from '$lib/components/technologies/techSlider.svelte';
 </script>
 
-<svelte:head>
-    <title>Milan Vlasák | My tech stack</title>
-    <meta property="og:title" content="My tech stack">
-    <meta name="description" property="og:description" content="List of most of the technologies I use. The list is not exhaustive but it covers my usual stack.">
-
-    <link rel="canonical" href="https://milanvlasak.cz/technologies" />
-</svelte:head>
+<SeoHead
+    title="My tech stack"
+    description="List of most of the technologies I use. The list is not exhaustive but it covers my usual stack."
+    path="/technologies"
+/>
 
 <h1>My tech stack</h1>
 

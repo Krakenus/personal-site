@@ -1,15 +1,14 @@
 <script lang="ts">
+    import SeoHead from '$lib/components/seoHead.svelte';
     import IconRow from '$lib/components/icons/iconRow.svelte';
     import SvgIcon from '$lib/components/icons/svgIcon.svelte';
 </script>
 
-<svelte:head>
-    <title>Milan Vlasák | Sys & DevOps</title>
-    <meta property="og:title" content="Sys & DevOps">
-    <meta name="description" property="og:description" content="I have some experience with setting up and maintaining Linux servers, as well as deploying applications to them. Recently got intrigued by Kubernetes and started learning it.">
-
-    <link rel="canonical" href="https://milanvlasak.cz/technologies/devops" />
-</svelte:head>
+<SeoHead
+    title="Sys & DevOps"
+    description="I have some experience with setting up and maintaining Linux servers, as well as deploying applications to them. Recently got intrigued by Kubernetes and started learning it."
+    path="/technologies/devops"
+/>
 
 <h1>Sys & DevOps</h1>
 

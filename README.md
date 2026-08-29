@@ -29,6 +29,7 @@ npm run dev            # http://localhost:3000
 | `npm run preview` | Serve the production build locally |
 | `npm run check` | `svelte-kit sync` + `svelte-check` (type check) |
 | `npm run lint` | ESLint |
+| `npm run og:image` | Re-render `static/og-image.png` from `design/og-image.html` |
 
 There is no test suite; `npm run check` and `npm run lint` are the verification story.
 
@@ -37,6 +38,22 @@ There is no test suite; `npm run check` and `npm run lint` are the verification 
 The contact form posts to `POST /api/v1/contact`, which sends mail through Mailgun. The credentials
 are read via `import.meta.env.VITE_*` and are **inlined at build time**, so they must be present in
 the build environment (not only at runtime). See `.env.example` for the full list of keys.
+
+## Link previews
+
+Pasting any page URL into Slack, Messenger, WhatsApp, Facebook, LinkedIn or X produces a rich
+preview. The tags come from `src/lib/components/seoHead.svelte`, which every page renders; shared
+values (site name, base URL, preview image) live in `src/lib/site.ts`.
+
+The preview image is `static/og-image.png` (1200x630). To change it, edit `design/og-image.html`
+and run:
+
+```bash
+npm run og:image          # or: CHROME=/path/to/chrome npm run og:image
+```
+
+That needs a Chrome or Chromium installed locally; it is deliberately not part of `npm run build`,
+since the rendered PNG is committed. Commit the regenerated image alongside your change.
 
 ## Deployment
 

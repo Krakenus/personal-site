@@ -1,0 +1,72 @@
+<!doctype html>
+<!--
+  Source for static/og-image.png — the link-preview image Slack, Messenger, WhatsApp,
+  Facebook, LinkedIn and X show when a page URL is pasted (og:image / twitter:image,
+  emitted by src/lib/components/seoHead.svelte).
+
+  Regenerate after changing the name, role or avatar:
+
+      npm run og:image
+
+  Fonts are loaded from design/fonts/ rather than the Google Fonts CDN so that the
+  render is deterministic and offline — a webfont that arrives late silently produces
+  a system-font image instead.
+
+  Colours are the site's own Tailwind tokens: gray-900 background, gray-800 ring,
+  white heading, gray-200 body, slate-400 muted.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Open Sans'; font-style: normal; font-weight: 400; font-display: block;
+    src: url('fonts/open-sans-400-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto'; font-style: normal; font-weight: 700; font-display: block;
+    src: url('fonts/roboto-700-latin.woff2') format('woff2');
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    background: oklch(0.21 0.034 264.665);            /* gray-900 */
+    font-family: 'Open Sans', sans-serif;
+    display: flex; align-items: center; gap: 72px;
+    padding: 0 96px; position: relative;
+  }
+  .avatar {
+    width: 320px; height: 320px; flex: 0 0 320px;
+    border-radius: 9999px; object-fit: cover;
+    box-shadow: 0 0 0 6px oklch(0.278 0.033 256.848), /* gray-800 ring */
+                0 25px 50px -12px rgb(0 0 0 / 0.55);
+  }
+  h1 {
+    font-family: Roboto, sans-serif; font-weight: 700;
+    font-size: 82px; line-height: 1.05; color: #fff; letter-spacing: -0.02em;
+  }
+  .rule {
+    width: 132px; height: 6px; border-radius: 9999px;
+    background: oklch(0.928 0.006 264.531);           /* gray-200 */
+    margin: 30px 0;
+  }
+  p { font-size: 38px; line-height: 1.35; color: oklch(0.928 0.006 264.531); }
+  p .muted { color: oklch(0.704 0.04 256.788); }      /* slate-400 */
+  .domain {
+    position: absolute; right: 96px; bottom: 56px;
+    font-size: 28px; letter-spacing: 0.04em;
+    color: oklch(0.704 0.04 256.788);
+  }
+</style>
+</head>
+<body>
+  <img class="avatar" src="../src/lib/assets/avatar.jpg" alt="">
+  <div>
+    <h1>Milan&nbsp;Vlasák</h1>
+    <div class="rule"></div>
+    <p>Software developer<br><span class="muted">from Czech Republic</span></p>
+  </div>
+  <div class="domain">milanvlasak.cz</div>
+</body>
+</html>

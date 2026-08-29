@@ -18,7 +18,11 @@ npm run build     # production build (adapter-cloudflare)
 npm run preview
 npm run check     # svelte-kit sync && svelte-check  — the type check
 npm run lint      # eslint .
+npm run og:image  # re-render static/og-image.png from design/og-image.html
 ```
+
+`og:image` needs a Chrome/Chromium on the machine (override with `CHROME=/path/to/chrome`). It is
+not part of `build` — the PNG is committed, and this only regenerates it.
 
 There is no test framework configured in this repo. `npm run check` + `npm run lint` are the full
 verification story; don't invent a test command. Because the site is fully prerendered, the other
@@ -65,8 +69,18 @@ repeating the ring/shadow/dark-bg utility chain.
   rendered with `{@render children?.()}`). Match this in new components.
 - Component files are camelCase (`pageHeader.svelte`), imported under PascalCase names, always via
   the `$lib/...` alias.
-- Every page owns its own `<svelte:head>` with `<title>`, `og:title`, description and an absolute
-  `rel="canonical"` to `https://milanvlasak.cz/...`. New pages need all four.
+- **Page metadata goes through `SeoHead`** (`$lib/components/seoHead.svelte`), not a hand-written
+  `<svelte:head>`. Give it `title`, `description` and `path`; it emits the `<title>`, canonical,
+  description, the full Open Graph set and the Twitter Card tags that Slack / Messenger / WhatsApp
+  read to build a link preview. Every new page needs one. Site-wide values (name, base URL, preview
+  image) live in `$lib/site.ts`.
+- `og:url`, `og:image` and `rel="canonical"` are **absolute** on purpose — link-preview crawlers
+  fetch the page out of context and do not resolve relative URLs. This is why `SeoHead` builds them
+  from `SITE_URL` rather than using `resolve()`.
+- The preview image is `static/og-image.png` (1200x630), rendered from `design/og-image.html` by
+  `npm run og:image`. Run it after changing the name, role or avatar, and commit the PNG. That file
+  loads its fonts from `design/fonts/` rather than the Google Fonts CDN the site uses, so the render
+  is offline and deterministic — a webfont arriving late silently yields a system-font image.
 - Tech-stack icons are loaded from the jsDelivr devicon CDN through `svgIcon.svelte` / `svgLink.svelte`
   (attribution lives in `pageFooter.svelte`); they are not vendored into `static/`.
 - Internal `<a href>` values go through `resolve()` from `$app/paths` (the
