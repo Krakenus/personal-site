@@ -31,6 +31,9 @@
             if(response.ok) {
                 success = true;
                 error = undefined;
+                name = undefined;
+                email = undefined;
+                message = undefined;
             } else {
                 success = false;
                 error = 'Message submission failed.';
