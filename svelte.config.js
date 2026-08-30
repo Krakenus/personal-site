@@ -12,7 +12,12 @@ const config = {
 		// Workers Static Assets when a Wrangler config file is present in the
 		// project root, so deliberately don't add one.
 		// See https://svelte.dev/docs/kit/adapter-cloudflare
-		adapter: adapter()
+		adapter: adapter(),
+		// /sitemap.xml isn't linked from any page, so the prerender crawler
+		// (which walks from '/') never reaches it — list it explicitly.
+		prerender: {
+			entries: ['*', '/sitemap.xml']
+		}
 	}
 };
 
